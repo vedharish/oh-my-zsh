@@ -35,8 +35,10 @@ plugins=(... common-aliases)
 | mv    | `mv -i`               | Move a file                                                                     |
 | zshrc | `${=EDITOR} ~/.zshrc` | Quickly access the ~/.zshrc file                                                |
 | dud   | `du -d 1 -h`          | Display the size of files at depth 1 in current location in human-readable form |
-| duf   | `du -sh`              | Display the size of files in current location in human-readable form            |
+| duf\* | `du -sh`              | Display the size of files in current location in human-readable form            |
 | t     | `tail -f`             | Shorthand for tail which outputs the last part of a file                        |
+
+\* Only if the [`duf`](https://github.com/muesli/duf) command isn't installed.
 
 ### find and grep
 
@@ -66,12 +68,15 @@ These aliases are expanded in any position in the command line, meaning you can 
 end of the command you've typed. Examples:
 
 Quickly pipe to less:
+
 ```zsh
 $ ls -l /var/log L
 # will run
 $ ls -l /var/log | less
 ```
+
 Silences stderr output:
+
 ```zsh
 $ find . -type f NE
 # will run
@@ -109,13 +114,13 @@ that file will be open with `acroread`.
 
 ### Listing files inside a packed file
 
-| Alias  | Command    | Description                       |
-| ------ | ---------- | --------------------------------- |
-| zip    | `unzip -l` | Lists files inside a .zip file    |
-| rar    | `unrar l`  | Lists files inside a .rar file    |
-| tar    | `tar tf`   | Lists files inside a .tar file    |
-| tar.gz | `echo`     | Lists files inside a .tar.gz file |
-| ace    | `unace l`  | Lists files inside a .ace file    |
+| Alias  | Command      | Description                       |
+| ------ | ------------ | --------------------------------- |
+| zip    | `unzip -l`   | Lists files inside a .zip file    |
+| rar    | `unrar l`    | Lists files inside a .rar file    |
+| tar    | `tar tf`     | Lists files inside a .tar file    |
+| tar.gz | `tar -ztf`   | Lists files inside a .tar.gz file |
+| ace    | `unace l`    | Lists files inside a .ace file    |
 
 ### Some other features
 
